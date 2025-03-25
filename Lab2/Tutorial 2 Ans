@@ -86,4 +86,22 @@ class Q6 {
 
 
 7.
+public static void method(ArrayList<?> list1, ArrayList<?> list2) {}
 
+
+8.
+public static void display(ArrayList<?> list) {
+    for (Object element : list) {
+        System.out.println(element);
+    }
+}
+
+
+9.
+Object
+
+
+10.
+All occurences of the type parameter will be replaced by the upper bound type.
+<T extends Number> will be replaced by Number.
+<E extends Comparable> will be replaced by Comparable.
