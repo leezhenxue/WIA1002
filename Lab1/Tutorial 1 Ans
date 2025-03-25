@@ -1,6 +1,6 @@
 1.
 class Telephone {
-    private int areaCode;
+    private String areaCode;
     private int number;
     int numberOfTelephoneObject;
 
@@ -10,7 +10,7 @@ class Telephone {
     }
 
     String makeFullNumber(){
-        return String.format("%02d-%8d", this.areaCode, this.number);
+        return this.areaCode + "-" this.number;
     }
 }
 
@@ -69,7 +69,7 @@ abstract class Vehicle {
         this.currentSpeed = 0;
     }
 
-    abstract void accelerate();
+    public abstract void accelerate();
 
     public double getCurrentSpeed(){
         return this.currentSpeed;
