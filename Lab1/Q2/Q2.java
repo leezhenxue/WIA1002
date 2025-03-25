@@ -5,19 +5,27 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Q2_text4 {
+public class Q2 {
     public static void main(String[] args) {
+        String[] filenames = {"Lab1/Q2/text1.txt", "Lab1/Q2/text2.txt", "Lab1/Q2/text3.txt", "Lab1/Q2/text4.txt"};
+        for (String filename : filenames){
+            read(filename);
+        }
+    }
+
+    public static void read(String filename){
         int num = 0;
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("Lab1/Q2/text4.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader(filename));
             String line;
             while ((line = reader.readLine()) != null){
-                String[] array = line.split("[0-9]+");
+                line = line.replaceAll("[,;]\\s?", ",").replaceAll("(?<=[a-zA-Z])[0-9]+", ",");
+                String[] array = line.split(",");
                 for (String element : array){
-                    System.out.print(element + " ");
+                    System.out.print(element);
+                    num += element.length();
                 }
                 System.out.println();
-                num += array.length;
             }
             System.out.println("Number of characters: " + num);
             System.out.println();
@@ -26,6 +34,6 @@ public class Q2_text4 {
             e.getMessage();
         } catch (IOException e){
             e.getMessage();
-        }   
+        }
     }
 }
