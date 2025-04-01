@@ -1,0 +1,96 @@
+1. 
+a.
+Dispenser: int itemCount, double cost
+Cash Register: double balance
+Candy Machine: CashRegister register, Dispenser candies, Dispenser chips,
+               Dispenser gum, Dispenser cookies
+
+b.
+Dispenser: int getItemCount(), double getCost(), void dispenseItem(), boolean isEmpty()
+Cash Register: double getBalance(), void acceptMoney(double amount), 
+               boolean hasEnoughMoney(double cost, double payment),
+               double returnChange(double cost, double payment)
+Candy Machine: void showProducts(), void selectProduct(int choice, double payment), 
+               void sell(Dispenser dispenser, double payment)
+
+c.
+------------------------
+Dispenser
+------------------------
+- itemCount: int
+- cost: double
+------------------------
++ getItemCount(): int
++ getCost(): double
++ dispenseItem(): void
++ isEmpty(): boolean
+------------------------
+
+-----------------------------
+CashRegister
+-----------------------------
+- balance: int
+-----------------------------
++ getBalance: double
++ acceptMoney(): void
++ hasEnoughMoney(): boolean
++ returnChange(): double
+-----------------------------
+
+-----------------------------------------------------
+CandyMachine
+-----------------------------------------------------
+- register: CashRegister
+- candies: Dispenser
+- chips: Dispenser
+- gum: Dispenser
+- cookies: Dispenser
+-----------------------------------------------------
++ showProducts(): void
++ selectProduct(choice: int, payment: double): void
++ sell(dispenser: Dispenser, payment: double): void
+-----------------------------------------------------
+
+
+
+2.
+companyName: String
+description: String 
+capacity: int
+efficiency: double
+cost: double
+installCost: double
+operatingCost: double
+
+public interface BidInterface {
+    String getCompanyName();
+    //Returns the name of the company making this bid.
+    String getDescription();
+    //Returns the description of the air conditioner that this bid is for.
+    int getCapacity();
+    //Returns the capacity of this bid's AC in tons (1 ton = 12,000 BTU).
+    double getEfficiency();
+    //Returns the seasonal efficiency of this bid's AC (SEER). 
+    double getCost();
+    //Returns the cost of this bid's AC.
+    double getIntallCot();
+    //Returns the cost of installing this bid's AC. 
+    double getOperatingCost();
+    //Returns the yearly cost of operating this bid's AC.
+}
+
+public interface BidCollectionInterface {
+    void addBid(Bid bid);
+    //Adds a bid to this collection.
+    Bid bestYearlyCost();
+    //Returns the bid in this collection with the best yearly cost. 
+    Bid bestInitialCost();
+    /*Returns the bid in this collection with the best initial cost. The initial 
+    cost will be defined as the unit cost plus the installation cost.*/
+    void clear();
+    //Clears all of the items from this collection. 
+    int getCollectionNum();
+    //Gets the number of items in this collection.
+    boolean isEmpty();
+    //Sees whether this collection is empty. 
+}
