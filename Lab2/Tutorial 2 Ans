@@ -86,7 +86,7 @@ class Q6 {
 
 
 7.
-public static void method(ArrayList<?> list1, ArrayList<?> list2) {}
+public static<T> void method(ArrayList<? entends T> list1, ArrayList<T> list2) {}
 
 
 8.
