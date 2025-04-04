@@ -13,14 +13,6 @@ public class ArrayBag<T> implements BagInterface<T> {
         this.numberOfEntries = 0;
     }
 
-    public T[] getBag() {
-        return this.bag;
-    }
-
-    public int getNumberOfEntries() {
-        return this.numberOfEntries;
-    }
-
     public int getCurrentSize() {
         return this.numberOfEntries;
     }
@@ -92,13 +84,6 @@ public class ArrayBag<T> implements BagInterface<T> {
         return false;
     }
 
-    public void display() {
-        for (int i = 0; i < numberOfEntries; i++) {
-            System.out.print(bag[i] + " ");
-        }
-        System.out.println();
-    }
-
     @SuppressWarnings("unchecked")
     public T[] toArray() {
         return (T[]) Arrays.copyOf(bag, numberOfEntries, bag.getClass());
@@ -134,6 +119,27 @@ public class ArrayBag<T> implements BagInterface<T> {
             }
         }
         return intersectionBag;
+    }
+
+    public BagInterface<T> difference(BagInterface<T> bag2) {
+        BagInterface<T> newBag = new ArrayBag<>();
+        T[] bag2Array = bag2.toArray();
+        for (int i = 0; i < numberOfEntries; i++) {
+            boolean duplicate = false;
+            for (int j = 0; j < bag2.getCurrentSize(); j++) {
+                if (bag[i].equals(bag2Array[j])) {
+                    duplicate = true;
+                    bag2Array[j] = bag2Array[bag2.getCurrentSize() - 1];
+                    bag2Array[bag2.getCurrentSize() - 1] = null;
+                    break;
+
+                }
+            }
+            if (duplicate == false) {
+                newBag.add(bag[i]);
+            }
+        }
+        return newBag;
     }
 
 }

@@ -1,4 +1,4 @@
-package Lab3.Q1;
+package Lab3.Q2;
 
 /**
  * An interface that describes the operations of a bag of objects.
@@ -76,4 +76,25 @@ public interface BagInterface<T> {
      * @return a newly allocated array of all the entries in the bag
      */
     public T[] toArray();
+
+    /**
+     * Combines the contents of two bags into a new bag.
+     * @param bag2 The second bag to combine with the first.
+     * @return A new bag containing all elements from both bags.
+     */
+    public BagInterface<T> union(BagInterface<T> bag2);
+
+    /**
+     * Find overlapping entries
+     * 
+     * @return as a new bag the intersection of the bag receiving 
+     * the call to the method and the bag that is the method’s one argumen
+     */
+    public BagInterface<T> intersection(BagInterface<T> bag2);
+
+    /**
+     * @return as a new bag the difference of the bag receiving the call to 
+     * the method and the bag that is the method’s one argument
+     */
+    public BagInterface<T> difference(BagInterface<T> bag2);
 } // end BagInterface
