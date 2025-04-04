@@ -2,7 +2,8 @@ package Lab3.Q2;
 
 import java.util.Arrays;
 
-public class ArrayBag<T> implements BagInterface<T>{
+public class ArrayBag<T> implements BagInterface<T> {
+
     private T[] bag;
     private static final int DEFAULT_CAPACITY = 25;
     private int numberOfEntries;
@@ -56,33 +57,33 @@ public class ArrayBag<T> implements BagInterface<T>{
         for (int i = 0; i < numberOfEntries; i++) {
             if (bag[i].equals(anEntry)) {
                 bag[i] = bag[numberOfEntries - 1];
-                bag[numberOfEntries - 1] = null;  
-                numberOfEntries--; 
+                bag[numberOfEntries - 1] = null;
+                numberOfEntries--;
                 return true;
             }
         }
         return false;
     }
-    
 
     public void clear() {
         Arrays.fill(bag, 0, numberOfEntries, null);
         numberOfEntries = 0;
     }
-    
 
     public int getFrequencyOf(T anEntry) {
         int freq = 0;
-        for (int i = 0; i < numberOfEntries; i++) { 
+        for (int i = 0; i < numberOfEntries; i++) {
             if (bag[i].equals(anEntry)) {
                 freq++;
             }
         }
         return freq;
     }
-    
 
     public boolean contains(T anEntry) {
+        if (anEntry == null) {
+            return false;
+        }
         for (int i = 0; i < numberOfEntries; i++) {
             if (bag[i].equals(anEntry)) {
                 return true;
@@ -90,34 +91,49 @@ public class ArrayBag<T> implements BagInterface<T>{
         }
         return false;
     }
-    
 
-    public T[] toArray() {
-        T[] arr = (T[]) new Object[numberOfEntries];
+    public void display() {
         for (int i = 0; i < numberOfEntries; i++) {
-            arr[i] = bag[i];
+            System.out.print(bag[i] + " ");
         }
-        return arr;
+        System.out.println();
     }
 
-    public BagInterface<T> union(BagInterface<T> bag2) {
-        ArrayBag<T> unionBag = new ArrayBag<>();
+    @SuppressWarnings("unchecked")
+    public T[] toArray() {
+        return (T[]) Arrays.copyOf(bag, numberOfEntries, bag.getClass());
+    }
+
+    @Override
+    public BagInterface<T> union(BagInterface<T> otherBag) {
+        ArrayBag<T> resultBag = new ArrayBag<>();
+
+        // Add all items from this bag
         for (int i = 0; i < this.numberOfEntries; i++) {
-            unionBag.add(this.bag[i]);
+            resultBag.add(this.bag[i]);
         }
-        for (int i = 0; i < bag2.getNumberOfEntries(); i++) {
-            unionBag.add(bag2.getBag()[i]);
+
+        // Add all items from the other bag
+        for (T item : otherBag.toArray()) {
+            resultBag.add(item);
         }
-        return unionBag;
-    }    
+
+        return resultBag;
+    }
 
     public BagInterface<T> intersection(BagInterface<T> bag2) {
+        ArrayBag<T> intersectionBag = new ArrayBag<>();
+        T[] bag2Array = bag2.toArray();
         for (int i = 0; i < this.numberOfEntries; i++) {
-            if (bag2.getBag().contains(this.bag[i])) {
-                
+            for (int j = 0; j < bag2Array.length; j++) {
+                if (this.bag[i].equals(bag2Array[j])) {
+                    intersectionBag.add(this.bag[i]);
+                    bag2Array[j] = null; // Avoid duplicate matches
+                    break;
+                }
             }
         }
+        return intersectionBag;
     }
 
 }
-

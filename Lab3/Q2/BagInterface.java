@@ -86,6 +86,7 @@ public interface BagInterface<T> {
 
     public T[] getBag();
     public int getNumberOfEntries();
+    public void display();
 
     /**
      * Find overlapping entries
