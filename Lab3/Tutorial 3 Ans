@@ -73,7 +73,7 @@ public interface BidInterface {
     //Returns the seasonal efficiency of this bid's AC (SEER). 
     double getCost();
     //Returns the cost of this bid's AC.
-    double getIntallCot();
+    double getInstallCot();
     //Returns the cost of installing this bid's AC. 
     double getOperatingCost();
     //Returns the yearly cost of operating this bid's AC.
