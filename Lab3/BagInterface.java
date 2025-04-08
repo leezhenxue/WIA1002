@@ -87,12 +87,14 @@ public interface BagInterface<T> {
     /**
      * Find overlapping entries
      * 
+     * @param bag2 The second bag to have intersection with this bag.
      * @return as a new bag the intersection of the bag receiving 
      * the call to the method and the bag that is the method’s one argumen
      */
     public BagInterface<T> intersection(BagInterface<T> bag2);
 
     /**
+     * @param bag2 The second bag to have difference with this bag.
      * @return as a new bag the difference of the bag receiving the call to 
      * the method and the bag that is the method’s one argument
      */

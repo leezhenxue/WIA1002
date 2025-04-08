@@ -1,7 +1,5 @@
 package Lab3.Q2;
 
-import java.util.Arrays;
-
 public class ArrayBag<T> implements BagInterface<T> {
 
     private T[] bag;
@@ -13,18 +11,22 @@ public class ArrayBag<T> implements BagInterface<T> {
         this.numberOfEntries = 0;
     }
 
+    @Override
     public int getCurrentSize() {
         return this.numberOfEntries;
     }
 
+    @Override
     public boolean isFull() {
         return this.numberOfEntries == DEFAULT_CAPACITY;
     }
 
+    @Override
     public boolean isEmpty() {
         return this.numberOfEntries == 0;
     }
 
+    @Override
     public boolean add(T newEntry) {
         if (!this.isFull()) {
             bag[this.numberOfEntries] = newEntry;
@@ -34,6 +36,7 @@ public class ArrayBag<T> implements BagInterface<T> {
         return false;
     }
 
+    @Override
     public T remove() {
         if (!isEmpty()) {
             T removedEntry = bag[this.numberOfEntries - 1];
@@ -45,6 +48,7 @@ public class ArrayBag<T> implements BagInterface<T> {
 
     }
 
+    @Override
     public boolean remove(T anEntry) {
         for (int i = 0; i < numberOfEntries; i++) {
             if (bag[i].equals(anEntry)) {
@@ -57,11 +61,14 @@ public class ArrayBag<T> implements BagInterface<T> {
         return false;
     }
 
+    @Override
     public void clear() {
-        Arrays.fill(bag, 0, numberOfEntries, null);
-        numberOfEntries = 0;
+        while (!isEmpty()) {
+            this.remove();
+        }
     }
 
+    @Override
     public int getFrequencyOf(T anEntry) {
         int freq = 0;
         for (int i = 0; i < numberOfEntries; i++) {
@@ -72,21 +79,25 @@ public class ArrayBag<T> implements BagInterface<T> {
         return freq;
     }
 
+    @Override
     public boolean contains(T anEntry) {
-        if (anEntry == null) {
-            return false;
-        }
+        boolean found = false;
         for (int i = 0; i < numberOfEntries; i++) {
             if (bag[i].equals(anEntry)) {
-                return true;
+                found = true;
             }
         }
-        return false;
+        return found;
     }
 
+    @Override
     @SuppressWarnings("unchecked")
     public T[] toArray() {
-        return (T[]) Arrays.copyOf(bag, numberOfEntries, bag.getClass());
+        T[] newArr = (T[]) new Object[numberOfEntries];
+        for (int i = 0; i < numberOfEntries; i++) {
+            newArr[i] = bag[i];
+        }
+        return newArr;
     }
 
     @Override
@@ -106,6 +117,7 @@ public class ArrayBag<T> implements BagInterface<T> {
         return resultBag;
     }
 
+    @Override
     public BagInterface<T> intersection(BagInterface<T> bag2) {
         ArrayBag<T> intersectionBag = new ArrayBag<>();
         T[] bag2Array = bag2.toArray();
@@ -121,18 +133,17 @@ public class ArrayBag<T> implements BagInterface<T> {
         return intersectionBag;
     }
 
+    @Override
     public BagInterface<T> difference(BagInterface<T> bag2) {
         BagInterface<T> newBag = new ArrayBag<>();
         T[] bag2Array = bag2.toArray();
         for (int i = 0; i < numberOfEntries; i++) {
             boolean duplicate = false;
-            for (int j = 0; j < bag2.getCurrentSize(); j++) {
+            for (int j = 0; j < bag2Array.length; j++) {
                 if (bag[i].equals(bag2Array[j])) {
                     duplicate = true;
-                    bag2Array[j] = bag2Array[bag2.getCurrentSize() - 1];
-                    bag2Array[bag2.getCurrentSize() - 1] = null;
+                    bag2Array[j] = null; // Mark as processed to avoid duplicates
                     break;
-
                 }
             }
             if (duplicate == false) {
