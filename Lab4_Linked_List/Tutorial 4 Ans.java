@@ -1,0 +1,185 @@
+1.
+a.
+Node<Character> node1 = new Node<>('a');
+Node<Character> node2 = new Node<>('z');
+node1.next = node2;
+Node<Character> head = node1;
+Node<Character> tail = node2;
+
+
+b.
+head --> [ 'a' | next ] ---> [ 'z' | next  ]---> null
+                                ^
+                                |
+                               tail
+
+c.
+System.out.print(node1.next.element);
+
+d.
+Node<Character> firstNode = new Node<>();
+firstNode.next = head;
+head = firstNode;
+size++;
+
+head --> [ null | null ] --> [ 'a' | next ] ---> [ 'z' | next ] ---> null
+                                                    ^
+                                                    |
+                                                   tail
+
+e.
+if (tail == null) {
+    tail = head;
+}
+
+f.
+Declare firstNode
+let firstNode.next = head
+let head = firstNode
+add size
+if tail = null
+    tail = head
+
+g.
+Node<Character> firstNode = new Node<>();
+firstNode.next = head;
+head = firstNode;
+size++;
+if (tail == null) {
+    tail = head;
+}
+
+h.
+i.
+public void addLast(E e) {
+    if (tail == null) {
+        head = tail = new Node<>(e);
+    }
+    else {
+        tail.next = new Node<>(e);
+        tail = tail.next;
+    }
+    size++;
+}
+addLast('c');
+
+ii.
+public void add(int index, E e) {
+    if (index == 0) {
+        addFirst(e);
+    }
+    else if (index >= size) {
+        addLast(e);
+    }
+    else {
+        Node<E> current = head;
+        for (int i = 0; i < index - 1; i++) {
+            current = current.next;
+        }
+        Node<E> temp = current.next;
+        current.next = new Node<>(e);
+        (current.next).next = temp;
+        size++;
+    }
+}
+add(2, 'd');
+
+iii.
+public E removeFirst() {
+    if (size == 0) {
+        return null;
+    }
+    else {
+        Node<E> temp = head;
+        head = head.next;
+        size--;
+        if (head == null) {
+            tail = null;
+        }
+        return temp.element;
+    }
+}
+
+iv.
+public E removeLast() {
+    if (size == 0) {
+        return null;
+    }
+    else if (size == 1) {
+        Node<E> temp = tail;
+        head = tail = null;
+        size = 0;
+        return temp.element;
+    }
+    else {
+        Node<E> current = head;
+        for (int i = 0; i < size - 2; i++) {
+            current = current.next;
+        }
+        Node<E> temp = tail;
+        tail = current;
+        tail.next = null;
+        size--;
+        return temp.element;
+    }
+}
+
+v.
+public E remove(int index) {
+    if (index < 0 || index >= size) {
+        return null;
+    }
+    else if (index == 0) {
+        return removeFirst();
+    }
+    else if (index == size - 1) {
+        return removeLast();
+    }
+    else {
+        Node<E> previous = head;
+        for (int i = 0; i < index - 1; i++) {
+            previous = previous.next;
+        }
+        Node<E> current = previous.next;
+        previous.next = current.next;
+        size--;
+        return current.element;
+    }
+}
+remove(1);
+
+
+
+2.
+a.
+contains(E e)
+
+b.
+public boolean contains(E e) {
+    
+    Node<E> current = head;
+    while (current != null) {
+        if (current.element.equals(e)) {
+           System.out.println(current.element); 
+           return true;
+        }
+        current = current.next;
+    }
+    return false;
+}
+
+
+3.
+a.
+removeLast()
+
+b.
+Node<E> current = head;
+for (int i = 0; i < size - 2; i++) {
+    current = current.next;
+}
+tail = current;
+tail.next = null;
+size--;
+
+
