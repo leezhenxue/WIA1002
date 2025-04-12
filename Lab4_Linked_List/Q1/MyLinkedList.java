@@ -188,9 +188,10 @@ public class MyLinkedList<E> {
     public void print() {
         Node<E> current = head;
         for (int i = 0; i < size; i++) {
-            System.out.println(current.element);
+            System.out.print(current.element + " ");
             current = current.next;
         }
+        System.out.println();
     }
 
     public void reverse() {
