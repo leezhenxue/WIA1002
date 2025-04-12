@@ -210,5 +210,27 @@ public class MyLinkedList<E> {
         head = previous; // New head
     }
     
-    
+    //Question 2
+    public E getMiddleValue() {
+        if (size == 0) {
+            return null;
+        }
+        else if (size == 1) {
+            return head.element;
+        }
+
+        int index;
+        if (size % 2 == 0) {
+            index = size / 2 - 1;
+        }
+        else {
+            index = size / 2;
+        }
+
+        Node<E> current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current.element;
+    }
 }

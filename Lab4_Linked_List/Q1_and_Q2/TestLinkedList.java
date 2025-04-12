@@ -7,6 +7,7 @@ public class TestLinkedList {
         linkedList.add(2, 'c');
         linkedList.add(3, 'd');
         linkedList.print();
+        System.out.println("The middle value: " + linkedList.getMiddleValue());
         linkedList.reverse();
         System.out.println("The number of elements: " + linkedList.size);
         System.out.println("The first value: " + linkedList.getFirst());
@@ -14,6 +15,7 @@ public class TestLinkedList {
         linkedList.remove(2);
         System.out.print("After remove third value: ");
         linkedList.print();
+        System.out.println("The middle value: " + linkedList.getMiddleValue());
         System.out.println("The index location of second value(d): " + linkedList.indexOf('d'));
         System.out.println("The index location of third value(b): " + linkedList.indexOf('b'));
         System.out.println(linkedList.contains('c'));
@@ -23,6 +25,8 @@ public class TestLinkedList {
         linkedList.set(3, 'a');
         System.out.print("After changing the items to 'java': ");
         linkedList.print();
+        System.out.println("The middle value: " + linkedList.getMiddleValue());
+
         
 
     } 
