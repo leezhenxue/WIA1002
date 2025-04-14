@@ -195,19 +195,21 @@ public class MyLinkedList<E> {
     }
 
     public void reverse() {
-        Node<E> previous = null;
+        String allElem = "";
         Node<E> current = head;
-        Node<E> next = null;
-        tail = head; // The old head becomes the new tail
-    
-        while (current != null) {
-            next = current.next;     // Step 1: Save next
-            current.next = previous; // Step 2: Reverse the link
-            previous = current;      // Step 3: Move previous forward
-            current = next;          // Step 4: Move current forward
+        for (int i = 0; i < size - 1; i++) {
+            allElem += current.element + ",";
+            current = current.next;
         }
-    
-        head = previous; // New head
+        allElem += current.element;
+        String[] allElemArr = allElem.split(",");
+
+        for (int i = allElemArr.length - 1; i >= 0; i--) {
+            System.out.print(allElemArr[i] + " ");
+        }
+
+        System.out.println();
+
     }
     
     //Question 2

@@ -9,6 +9,7 @@ public class TestLinkedList {
         linkedList.print();
         System.out.println("The middle value: " + linkedList.getMiddleValue());
         linkedList.reverse();
+        linkedList.print();
         System.out.println("The number of elements: " + linkedList.size);
         System.out.println("The first value: " + linkedList.getFirst());
         System.out.println("The last value: " + linkedList.getLast());
