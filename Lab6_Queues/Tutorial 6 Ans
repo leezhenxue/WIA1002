@@ -1,0 +1,40 @@
+1. 
+Atm line, printer queue, customer support call center, food trunk line
+
+
+2.
+Queue is first-in-first-out ordering, while stack is last-in-first-out ordering
+
+
+3.
+(a)
+1 4 5 2 3 
+
+(b)
+no, because it can only have maximum of two ordering group but it has three.
+First group is 1 and 2. Second group is 3 and 4. Third group is 5.
+
+(c)
+true true true true true
+false false false false false
+true true true false false
+
+
+4.
+(a)
+5
+
+(b)
+7
+
+(c)
+Y = 7
+
+(d)
+9
+
+
+5.
+front() - use peek() method to show head of LinkedList
+contains() - show whether the element is in the queue
+clear() - clear all the element in queue
