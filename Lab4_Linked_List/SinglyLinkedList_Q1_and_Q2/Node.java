@@ -1,3 +1,4 @@
+package SinglyLinkedList_Q1_and_Q2;
 public class Node<E> {
     E element;
     Node<E> next;

@@ -1,3 +1,4 @@
+package SinglyLinkedList_Q1_and_Q2;
 public class TestLinkedList {
     public static void main(String[] args) {
         MyLinkedList<Character> linkedList = new MyLinkedList<>();

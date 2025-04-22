@@ -2,7 +2,7 @@
 a.
 Node<Character> node1 = new Node<>('a');
 Node<Character> node2 = new Node<>('z');
-node1.next = node2;
+
 Node<Character> head = node1;
 Node<Character> tail = node2;
 
@@ -14,7 +14,7 @@ head --> [ 'a' | next ] ---> [ 'z' | next  ]---> null
                                tail
 
 c.
-System.out.print(node1.next.element);
+node1.next = node2;
 
 d.
 Node<Character> firstNode = new Node<>();
@@ -36,7 +36,7 @@ f.
 Declare firstNode
 let firstNode.next = head
 let head = firstNode
-add size
+size increase
 if tail = null
     tail = head
 
@@ -174,12 +174,17 @@ a.
 removeLast()
 
 b.
-Node<E> current = head;
-for (int i = 0; i < size - 2; i++) {
-    current = current.next;
+public E removeLast() {
+    Node<E> pointer1 = head;
+    for (int i = 0; i < size - 2; i++) {
+        pointer1 = pointer1.next;
+    }
+    Node<E> temp = tail;
+    tail = pointer1;
+    tail.next = null;
+    size--;
+    return temp.element;
 }
-tail = current;
-tail.next = null;
-size--;
+
 
 

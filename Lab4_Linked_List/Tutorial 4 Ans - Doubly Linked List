@@ -1,0 +1,68 @@
+1.
+a.
+The code line 10 to 13 change the head element to the argument
+and the original head element is returned. The line code 14 to 21 
+is changing the element of the index given to the element in the argument 
+and then return the original element at that index.
+
+b.
+The purpose of xyz() method is to replace the element at the given index the
+element given in the argument.
+
+c.
+public E xyz(int index,E e) {
+    Node<E> current=head;
+    Node<E> temp;
+    if(index < 0) {
+        return null;
+    }
+    else if(index >= size - 1) {
+        temp = tail;
+        tail.element = e;
+        return temp.element;
+    }
+    else if(index == 0) {
+        temp = head;
+        head.element = e;
+        return temp.element;
+    }else{
+        for (int i = 1; i < index; i++) {
+            current=current.next;
+        }
+        temp = current.next;
+        current.next.element = e;
+        return temp.element;
+    }
+}
+
+
+2.
+a.
+The code line 2 to 11 delete one node of the index 3.
+
+b.
+
+
+
+
+3.
+Node<Character> node1 = new Node<>('a');
+Node<Character> node2 = new Node<>('b');
+Node<Character> node3 = new Node<>('c');
+node1.previous = null;
+node1.next = node2;
+node2.previous = node1;
+node2.next = node3;
+node3.previous = node2;
+node3.next = null;
+int size = 3;
+
+Node<Character> head = node1;
+Node<Character> tail = node3;
+
+Node<Character> node4 = new Node<>('z');
+node4.previous = tail;
+node4.next = null;
+tail.next = node4;
+tail = node4;
+size++;

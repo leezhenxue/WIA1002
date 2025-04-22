@@ -1,3 +1,4 @@
+package SinglyLinkedList_Q1_and_Q2;
 public class MyLinkedList<E> {
     Node<E> head;
     Node<E> tail;
