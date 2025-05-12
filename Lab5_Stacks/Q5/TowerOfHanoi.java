@@ -32,25 +32,25 @@ public class TowerOfHanoi {
     }
 
     // Recursive function to move disks
-    public static void moveDisks(int n, Stack<Integer> fromRod, Stack<Integer> toRod, Stack<Integer> auxRod) {
+    public static void moveDisks(int n, Stack<Integer> rod1, Stack<Integer> rod3, Stack<Integer> rod2) {
         if (n == 1) {
-            // Move a single disk from 'fromRod' to 'toRod'
-            int disk = fromRod.pop();
-            toRod.push(disk);
-            System.out.println("Move disk " + disk + " from " + rodName(fromRod) + " to " + rodName(toRod));
+            // Move a single disk from 'rod1' to 'rod3'
+            int disk = rod1.pop();
+            rod3.push(disk);
+            System.out.println("Move disk " + disk + " from " + rodName(rod1) + " to " + rodName(rod3));
             return;
         }
 
-        // Move n-1 disks from 'fromRod' to 'auxRod' using 'toRod' as auxiliary
-        moveDisks(n - 1, fromRod, auxRod, toRod);
+        // Move n-1 disks from 'rod1' to 'rod2' using 'rod3' as auxiliary
+        moveDisks(n - 1, rod1, rod2, rod3);
 
-        // Move the nth disk from 'fromRod' to 'toRod'
-        int disk = fromRod.pop();
-        toRod.push(disk);
-        System.out.println("Move disk " + disk + " from " + rodName(fromRod) + " to " + rodName(toRod));
+        // Move the nth disk from 'rod1' to 'rod3'
+        int disk = rod1.pop();
+        rod3.push(disk);
+        System.out.println("Move disk " + disk + " from " + rodName(rod1) + " to " + rodName(rod3));
 
-        // Move n-1 disks from 'auxRod' to 'toRod' using 'fromRod' as auxiliary
-        moveDisks(n - 1, auxRod, toRod, fromRod);
+        // Move n-1 disks from 'rod2' to 'rod3' using 'rod1' as auxiliary
+        moveDisks(n - 1, rod2, rod3, rod1);
     }
 
     // Helper method to print the current state of the rods

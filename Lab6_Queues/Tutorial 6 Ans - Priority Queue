@@ -1,0 +1,37 @@
+1.
+Queue remove the first element in the queue while priority queue remove
+the element with highest priority.
+
+
+2.
+Hospital emergnecy system, print queue in office, task scheduler
+
+
+3.
+peek() gives us: C++
+The queue elements:
+C++
+Fortran
+Java
+Python
+After poll():
+Fortran
+Java
+Python
+After remove():
+Fortran
+Python
+Priority queue contains Ruby or not?: false
+Value in array: 
+Value: Fortran
+Value: Python
+
+
+4.
+a.
+The purpose of PriorityQueueComparator is to customize the sorting order of the PriorityQueue. Instead of using the default lexicographical order of strings, this comparator compares strings based on their lengths. Shorter strings have higher priority in the queue.
+
+b.
+Ali
+Jason
+Muhamad
