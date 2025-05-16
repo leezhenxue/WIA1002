@@ -1,16 +1,14 @@
 import java.util.LinkedList;
 
-public class MyQueue<E> {
+public class Queue<E> {
     LinkedList<E> queue;
 
-    public MyQueue(E[] e) {
+    public Queue(E e) {
         this.queue = new LinkedList<>();
-        for (E element : e) {
-            this.queue.add(element);
-        }
+            this.queue.add(e);
     }
 
-    public MyQueue() {
+    public Queue() {
         this.queue = new LinkedList<>();
     }
 
