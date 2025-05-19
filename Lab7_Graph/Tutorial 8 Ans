@@ -34,18 +34,8 @@ int[][] adjacencyMatrix = {
     {0, 0, 0, 0, 0, 0, 0, 0, 1},
     {0, 0, 0, 0, 0, 0, 0, 0, 0},
 }
-I use adjacency matrix to creat e2 dimensional array.
+I use adjacency matrix to create 2 dimensional array.
 
 
 3.
-class Vertex<T extends Comparable<T>, N extends Comparable <N>> {
-    T vertexInfro;
-    int indeg;
-    int outdeg;
-    Vertex<T,N> nextVertex;
-    Edge<T,N> firstEdge;
-
-    public Vertex() {
-        
-    }
-}
+I use adjacency list for this purpose.
