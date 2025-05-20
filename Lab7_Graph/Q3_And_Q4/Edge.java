@@ -12,14 +12,8 @@ class Edge<T extends Comparable<T>, N extends Comparable <N>> {
 		nextEdge = null;
 		weight = null;
 	}
-
-	public Edge(Vertex<T,N> destination, Edge<T,N> a)	{
-		toVertex = destination;
-		weight = null;
-		nextEdge = a;
-	}
 	
-	public Edge(Vertex<T,N> destination, Edge<T,N> a, N w)	{
+	public Edge(Vertex<T,N> destination, N w, Edge<T,N> a)	{
 		toVertex = destination;
 		weight = w;
 		nextEdge = a;
