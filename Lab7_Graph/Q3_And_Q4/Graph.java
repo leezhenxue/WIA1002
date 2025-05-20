@@ -6,7 +6,7 @@ public class Graph<T extends Comparable<T>, N extends Comparable <N>> extends We
         return super.addEdge(source, destination, null);
     }
 
-    public boolean addUndirectedEdge(T source, T destination, N w) {
+    public boolean addUndirectedEdge(T source, T destination) {
         if (head == null) {
             return false;
         }
