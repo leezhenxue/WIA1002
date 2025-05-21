@@ -2,21 +2,22 @@
 public class Q2 {
 
     public static void main(String[] args) {
-        System.out.println(permuteString("ABC"));
+        permuteString("ABC");
     }
 
-    public static String[] permuteString(String s) {
-        if (s.length() == 1) {
-            
+    public static void permuteString(String s) {
+        permuteString(s, "");
+    }
+
+    public static void permuteString(String startString, String resultString) {
+
+        if (startString.length() == 0) {
+            System.out.println(resultString);
+            return;
         }
-    }
 
-    public static String[] insert(String word, String insertChar) {
-        String[] wordArr = null;
-        for (int i = 0; i < word.length() - 1; i++) {
-            String newWord = "";
-            newWord = word.substring(0, i) + insertChar + word.substring(i, word.length() - 1);
-            
+        for (int i = 0; i <= resultString.length(); i++) {
+            permuteString(startString.substring(1), resultString.substring(0, i) + startString.charAt(0) + resultString.substring(i, resultString.length()));
         }
     }
 }
