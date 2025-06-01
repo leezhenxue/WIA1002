@@ -1,0 +1,172 @@
+1. 
+a.
+Dispenser: int itemCount, double cost
+CashRegister: double balance
+CandyMachine: CashRegister register, Dispenser candies, Dispenser chips,
+               Dispenser gum, Dispenser cookies
+
+b.
+Dispenser: int getItemCount(), double getCost(), void setItemCount(), void setCost(), 
+                void dispenseItem(), boolean isEmpty()
+CashRegister: double getBalance(), void setBalance(), void acceptMoney(double amount), 
+                boolean hasEnoughMoney(double cost, double payment),
+                double returnChange(double cost, double payment)
+CandyMachine: void showProducts(), void selectProduct(int choice, double payment)
+
+c.
+------------------------
+Dispenser
+------------------------
+- itemCount: int
+- cost: double
+------------------------
++ getItemCount(): int
++ getCost(): double
++ dispenseItem(): void
++ isEmpty(): boolean
+------------------------
+
+-----------------------------
+CashRegister
+-----------------------------
+- balance: int
+-----------------------------
++ getBalance: double
++ acceptMoney(): void
++ hasEnoughMoney(): boolean
++ returnChange(): double
+-----------------------------
+
+-----------------------------------------------------
+CandyMachine
+-----------------------------------------------------
+- register: CashRegister
+- candies: Dispenser
+- chips: Dispenser
+- gum: Dispenser
+- cookies: Dispenser
+-----------------------------------------------------
++ showProducts(): void
++ selectProduct(choice: int, payment: double): void
+-----------------------------------------------------
+
+
+
+2.
+companyName: String
+description: String 
+capacity: int
+efficiency: double
+cost: double
+installCost: double
+operatingCost: double
+
+public interface BidInterface {
+    /**
+     * Purpose: Returns the name of the company making this bid.
+     * PreCondition: None
+     * Postcondition: return companyName
+     * Parameter: None
+     */
+    public String getCompanyName();
+
+    /**
+     * Purpose: Returns the description of the air conditioner that this bid is for.
+     * PreCondition: None
+     * Postcondition: return description
+     * Parameter: None
+     */
+    public String getDescription();
+    
+    /**
+     * Purpose: Returns the capacity of this bid's AC in tons (1 ton = 12,000 BTU).
+     * PreCondition: None
+     * Postcondition: return capacity
+     * Parameter: None
+     */
+    public int getCapacity();
+        
+    /**
+     * Purpose: Returns the seasonal efficiency of this bid's AC (SEER). 
+     * PreCondition: None
+     * Postcondition: return efficiency
+     * Parameter: None
+     */
+    public double getEfficiency();
+        
+    /**
+     * Purpose: Returns the cost of this bid's AC. 
+     * PreCondition: None
+     * Postcondition: return cost of bid's AC
+     * Parameter: None
+     */
+    public double getCost();     
+
+    /**
+     * Purpose: Returns the cost of installing this bid's AC. 
+     * PreCondition: None
+     * Postcondition: return installing cost
+     * Parameter: None
+     */    
+    public double getInstallCot();
+   
+    /**
+     * Purpose: Returns the yearly cost of operating this bid's AC. 
+     * PreCondition: None
+     * Postcondition: return yearly operating cost
+     * Parameter: None
+     */    
+    public double getOperatingCost();
+}
+
+public interface BidCollectionInterface {]
+
+    /**
+     * Purpose: Adds a bid to this collection.
+     * PreCondition: None
+     * Postcondition: None
+     * Parameter: bid in type of BidInterface
+     */    
+    public void addBid(BidInterface bid);
+    
+    /**
+     * Purpose: Returns the bid in this collection with the best yearly cost. 
+     * PreCondition: None
+     * Postcondition: return bid that has best yearly cost
+     * Parameter: None
+     */  
+    public BidInterface bestYearlyCost();
+        
+    /**
+     * Purpose: Returns the bid in this collection with the best initial cost. The initial 
+    cost will be defined as the unit cost plus the installation cost. 
+     * PreCondition: None
+     * Postcondition: return bid that has best initial cost
+     * Parameter: None
+     */ 
+    public BidInterface bestInitialCost();
+
+    /**
+     * Purpose: Clears all of the items from this collection. 
+     * PreCondition: None
+     * Postcondition: None
+     * Parameter: None
+     */ 
+    public void clear();
+    
+    /**
+     * Purpose: Gets the number of items in this collection. 
+     * PreCondition: None
+     * Postcondition: return collection number
+     * Parameter: None
+     */ 
+    public int getCollectionNum();
+        
+    /**
+     * Purpose: Sees whether this collection is empty. 
+     * PreCondition: None
+     * Postcondition: return true if empty, false if its not.
+     * Parameter: None
+     */ 
+    public boolean isEmpty();
+}

@@ -1,0 +1,123 @@
+1.
+class Telephone {
+    private String areaCode;
+    private int number;
+    int numberOfTelephoneObject;
+
+    public Telephone(int areaCode, int number){
+        this.areaCode = areaCode;
+        this.number = number;
+    }
+
+    String makeFullNumber(){
+        return this.areaCode + "-" this.number;
+    }
+}
+
+class main {
+    public static void main(String[] args) {
+        Telephone t1 =  new Telephone(03, 79676300);
+        Telephone t2 =  new Telephone(03, 79676301);
+        Telephone t3 =  new Telephone(03, 79676302);
+        Telephone t4 =  new Telephone(03, 79676303);
+        Telephone t5 =  new Telephone(03, 79676304);
+
+        System.out.println(t1.makeFullNumber());
+        System.out.println(t2.makeFullNumber());
+        System.out.println(t3.makeFullNumber());
+        System.out.println(t4.makeFullNumber());
+        System.out.println(t5.makeFullNumber());
+    }
+}
+
+
+
+2.
+The output is:
+(1) Performs Person's tasks
+(2) Invoke Employee's overloaded constructor
+(3) Performs Employee's tasks 
+(4) Performs Faculty's tasks
+
+The main method is creating a new Faculty constructor, then the FAculty constructor call
+Employee constructor then will call Person constructor. the Person constuctor with no 
+argument print "(1) Performs Person's tasks", then Employee with no argument call this 
+which is Employee constructor with argement will then print "(2) Invoke Employee's 
+overloaded constructor". Then, the Employee constuctor with no argument will continue 
+to print "(3) Performs Employee's tasks ". Then, the Faculty constuctor
+print "(4) Performs Faculty's tasks".
+
+
+
+3.
+AB
+
+It create an object array with A object and B object inside the array. Then, it 
+print A object first then B object. The A and B object is override the toString 
+method. Therefore, A object will print 'A', while B object will print 'B'. This
+lead to the answer AB.
+
+
+
+4.
+abstract class Vehicle {
+    private double maxSpeed;
+    protected double currentSpeed;
+
+    public Vehicle(double maxSpeed){
+        this.maxSpeed = maxSpeed;
+        this.currentSpeed = 0;
+    }
+
+    public abstract void accelerate();
+
+    public double getCurrentSpeed(){
+        return this.currentSpeed;
+    }
+
+    public double getMaxSpeed(){
+        return this.maxSpeed;
+    }
+
+    public void pedalToTheMetal(){
+        while (currentSpeed < maxSpeed){
+            accelerate();
+        }
+    }
+}
+
+No, an instance of Vehicle cannot be created because it is an abstract class.
+Only subclasses of Vehicle can be instantiated.
+
+
+
+5.
+interface Account {
+    int deposit(int a);
+    boolean withdraw(int b);
+}
+
+class BankAccount implements Account{
+    private int balance;
+
+    public BankAccount(int balance){
+        this.balance = balance;
+    }
+
+    @Override
+    public int deposit(int a){
+        this.balance += a;
+        return this.balance;
+    }
+
+    @Override
+    public boolean withdraw(int b){
+        if (b <= this.balance){
+            this.balance -= b;
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
