@@ -1,3 +1,5 @@
+package Lab6_Queues.Ans;
+
 import java.util.*;
 
 public class PriorityQueue2 {

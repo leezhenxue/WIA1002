@@ -1,3 +1,5 @@
+package Lab6_Queues.Q2;
+
 import java.util.LinkedList;
 
 public class Queue<E> {

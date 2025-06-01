@@ -1,3 +1,5 @@
+package Lab6_Queues.Q1;
+
 public class TestProgram {
     public static void main(String[] args) {
         String[] fruits = {"Durian", "Blueberry"};

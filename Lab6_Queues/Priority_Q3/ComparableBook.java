@@ -1,4 +1,4 @@
-package Priority_Q3;
+package Lab6_Queues.Priority_Q3;
 
 public class ComparableBook implements Comparable<ComparableBook> {
     private int code;

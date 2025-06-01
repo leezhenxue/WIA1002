@@ -1,4 +1,4 @@
-package Priority_Q2;
+package Lab6_Queues.Priority_Q2;
 
 import java.util.Arrays;
 import java.util.List;

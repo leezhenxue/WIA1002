@@ -1,3 +1,4 @@
+package Lab6_Queues.Q3;
 
 import java.util.Scanner;
 

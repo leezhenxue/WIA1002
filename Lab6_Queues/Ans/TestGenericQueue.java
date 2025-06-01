@@ -1,3 +1,5 @@
+package Lab6_Queues.Ans;
+
 public class TestGenericQueue {
   public static void main(String[] args) {
     // Create a stack

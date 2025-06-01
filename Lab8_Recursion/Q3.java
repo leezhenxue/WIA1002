@@ -1,3 +1,5 @@
+package Lab8_Recursion;
+
 public class Q3 {
 public static void main(String[] args) {
     System.out.println(exponent(10, 3));

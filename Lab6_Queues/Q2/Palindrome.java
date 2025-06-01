@@ -1,3 +1,6 @@
+package Lab6_Queues.Q2;
+
+import Lab6_Queues.Q3.Queue;
 
 import java.util.Scanner;
 
@@ -6,7 +9,7 @@ public class Palindrome {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String word = input.next().toLowerCase();
-        Queue<Character> queue = new Queue<>();
+        Lab6_Queues.Q3.Queue<Character> queue = new Queue<>();
         for (int i = word.length() - 1; i >= 0; i--) {
             queue.enqueue(word.toCharArray()[i]);
         }
