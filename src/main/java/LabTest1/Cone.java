@@ -1,3 +1,5 @@
+package LabTest1;
+
 public class Cone implements Geometric {
     private double r;
     private double h;
