@@ -11,6 +11,7 @@ public class TestBST {
     tree.insert("Jones");
     tree.insert("Peter");
     tree.insert("Daniel");
+    
 
     // Traverse tree
     System.out.print("Inorder (sorted): ");

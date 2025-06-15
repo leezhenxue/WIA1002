@@ -1,3 +1,5 @@
+package Group_Assignment_2;
+
 // Group Tutorial [Tutorial Number] 
 // Group Members: 
 // Student 1: [Name] – Singly Linked List 
@@ -6,7 +8,7 @@
 // Student 4: [Name] – Undo/Redo with Stack 
 // Student 5: [Name] – Testing 
 
-import java.util.*;
+import java.util.Stack;
 
 public class ChatManager {
 
